@@ -15,43 +15,41 @@ body {
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  position: relative; /* Quan trọng để định vị chữ An và trái tim */
+  position: relative; /* Quan trọng để định vị chữ Phong và trái tim */
 }
 
-/* Kiểu cho chữ An ở góc trên bên trái */
+/* Kiểu cho chữ Phong ở góc trên bên trái */
 #targetName {
   position: absolute;
   top: 20px;
   left: 20px;
-  font-family: "Dancing Script", cursive; /* Một font chữ viết tay đẹp */
+  font-family: "Dancing Script", cursive;
   font-size: 3rem;
-  color: #ffcccc; /* Màu hồng nhạt */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  color: #ffcccc;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
   z-index: 10;
-  opacity: 0; /* Ban đầu ẩn đi */
-  transition: opacity 1.5s ease-in-out; /* Hiệu ứng mờ dần khi xuất hiện */
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
 }
 
-/* Kiểu cho khu vực chứa trái tim */
 #heartContainer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Cho phép tương tác với các phần tử bên dưới */
-  z-index: 5; /* Nằm trên nền nhưng dưới nội dung chính */
+  pointer-events: none;
+  z-index: 5;
 }
 
-/* Tạo hình trái tim bằng CSS */
 .heart {
   position: absolute;
-  background-color: #ffcccc; /* Màu hồng nhạt */
+  background-color: #ffcccc;
   width: 15px;
   height: 15px;
   transform: rotate(-45deg);
-  opacity: 0; /* Ban đầu ẩn đi */
-  animation: none; /* Ban đầu không có animation */
+  opacity: 0;
+  animation: none;
 }
 .heart::before,
 .heart::after {
@@ -71,18 +69,10 @@ body {
   top: 0;
 }
 
-/* Animation để trái tim bay lên và mờ dần */
 @keyframes animateHeart {
-  0% {
-    transform: translateY(0) rotate(-45deg) scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-200px) rotate(-45deg) scale(1.5);
-    opacity: 0;
-  }
+  0% { transform: translateY(0) rotate(-45deg) scale(0); opacity: 1; }
+  100% { transform: translateY(-200px) rotate(-45deg) scale(1.5); opacity: 0; }
 }
-
 
 .intro {
   text-align: center;
@@ -91,6 +81,7 @@ body {
   opacity: 1;
   transition: opacity 1s ease;
 }
+
 .btn {
   padding: 10px 20px;
   font-size: 1rem;
@@ -98,13 +89,12 @@ body {
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  color: rgb(5, 2, 2);
+  color: rgb(5,2,2);
   transition: 0.3s;
   margin: 20px;
 }
-.btn:hover {
-  background: #b1acad;
-}
+.btn:hover { background: #b1acad; }
+
 .letter {
   display: none;
   background: repeating-linear-gradient(
@@ -120,7 +110,7 @@ body {
   max-width: 500px;
   max-height: 85vh;
   height: auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
   font-size: 1.1rem;
   line-height: 1.6;
   text-align: left;
@@ -131,7 +121,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   margin: 20px 10px;
-  z-index: 10; /* Đảm bảo bức thư nằm trên trái tim */
+  z-index: 10;
 }
 .letter p {
   margin-top: 0;
@@ -166,45 +156,23 @@ body {
   margin-right: 6px;
 }
 
-/* ------------------------------------------------------------------- */
-/* MOBILE RESPONSIVENESS (Thiết lập cho điện thoại di động) */
-/* ------------------------------------------------------------------- */
-
 @media (max-width: 550px) {
-    body {
-        align-items: flex-start;
-        padding: 0 10px;
-        justify-content: flex-start;
-    }
-
-    #targetName {
-      font-size: 2rem; /* Thu nhỏ chữ An trên mobile */
-      top: 15px;
-      left: 15px;
-    }
-
-    .intro {
-        font-size: 1.2rem;
-        margin-top: 50px;
-    }
-
-    .letter {
-        width: 100%;
-        max-width: 100%;
-        padding: 20px 20px 20px 50px;
-        font-size: 1rem;
-        max-height: 80vh;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    
-    .letter::before {
-        width: 15px;
-        background-size: 15px 40px;
-    }
-
-    .signature {
-        width: 120px;
-        margin-right: 0;
-    }
+  body {
+    align-items: flex-start;
+    padding: 0 10px;
+    justify-content: flex-start;
+  }
+  #targetName {
+    font-size: 2rem;
+    top: 15px;
+    left: 15px;
+  }
+  .intro { font-size: 1.2rem; margin-top: 50px; }
+  .letter {
+    width: 100%; max-width: 100%; padding: 20px 20px 20px 50px;
+    font-size: 1rem; max-height: 80vh;
+    margin-left: 0; margin-right: 0;
+  }
+  .letter::before { width: 15px; background-size: 15px 40px; }
+  .signature { width: 120px; margin-right: 0; }
 }
